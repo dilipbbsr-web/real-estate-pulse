@@ -1,379 +1,1232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Real Estate Pulse — Bold, data-driven property investment tips for India's modern investor. Weekly insights. Zero fluff."/>
-  <meta property="og:title" content="Real Estate Pulse — Invest Smarter"/>
-  <meta property="og:description" content="12 years of market knowledge. Real tips. Real results."/>
-  <title>Real Estate Pulse — Invest Smarter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --ink:#0D0D1A;--deep:#1A1040;--purple:#6C2FF2;--violet:#9B5CF6;
-      --orange:#FF5C35;--amber:#FFB627;--cyan:#00C6FF;--pink:#FF3CAC;
-      --white:#FFFFFF;--offwhite:#F7F5FF;--border:#E8E4FF;--muted:#6B6B8A;
-      --text:#1A1040;--radius:16px;--shadow:0 8px 40px rgba(108,47,242,0.12);
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden;line-height:1.7}
-    a{text-decoration:none}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Real Estate Pulse India — Live market intelligence, property news, and investment insights. Join 4,200+ smart investors on Facebook."/>
+<title>Real Estate Pulse India 🏙️ — Invest Smarter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:    #04091E;
+  --deep:    #080E2B;
+  --card:    #0C1232;
+  --card2:   #101840;
+  --teal:    #00D4FF;
+  --gold:    #FFB800;
+  --coral:   #FF4E6A;
+  --lime:    #39FF6A;
+  --violet:  #A855F7;
+  --white:   #FFFFFF;
+  --offwhite:#EEF2FF;
+  --muted:   #7A85B0;
+  --border:  rgba(255,255,255,0.07);
+  --glow-t:  0 0 40px rgba(0,212,255,0.25);
+  --glow-g:  0 0 40px rgba(255,184,0,0.25);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  overflow-x:hidden;
+  cursor:none;
+}
+a{text-decoration:none;color:inherit}
 
-    /* NAV */
-    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:66px;background:rgba(247,245,255,0.94);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border)}
-    .nav-brand{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;display:flex;align-items:center;gap:6px}
-    .nav-brand .grad{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .nav-links{display:flex;gap:26px;align-items:center}
-    .nav-links a{font-size:0.875rem;color:var(--muted);font-weight:500;transition:color .2s}
-    .nav-links a:hover{color:var(--purple)}
-    .nav-cta{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff!important;padding:9px 22px;border-radius:50px;font-weight:600!important;transition:opacity .2s,transform .15s}
-    .nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════ */
+#cursor{
+  position:fixed;width:12px;height:12px;border-radius:50%;
+  background:var(--teal);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;
+  box-shadow:0 0 16px var(--teal);
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(0,212,255,0.5);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);transition:all .12s ease-out;
+}
+body:hover #cursor{opacity:1}
 
-    /* HERO */
-    .hero{min-height:91vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 6vw 100px;position:relative;overflow:hidden;background:linear-gradient(145deg,#0D0D1A 0%,#1A1040 45%,#2A0A4A 100%)}
-    .orb{position:absolute;border-radius:50%;pointer-events:none}
-    .orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(108,47,242,.35) 0%,transparent 70%);top:-150px;left:-150px;animation:orbFloat 8s ease-in-out infinite}
-    .orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(255,92,53,.25) 0%,transparent 70%);bottom:-100px;right:-100px;animation:orbFloat 10s ease-in-out infinite reverse}
-    .orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(0,198,255,.15) 0%,transparent 70%);top:40%;right:15%;animation:orbFloat 6s ease-in-out infinite 2s}
-    .hero-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(108,47,242,.2);border:1px solid rgba(155,92,246,.4);color:#C4A6FF;border-radius:50px;padding:7px 20px;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:30px;position:relative;animation:fadeUp .6s ease both}
-    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
-    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:800;line-height:1.08;margin-bottom:24px;position:relative;animation:fadeUp .7s ease .1s both}
-    .hero h1 .w{color:#fff}
-    .hero h1 .g{background:linear-gradient(90deg,var(--amber),var(--orange),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:clamp(1rem,2vw,1.18rem);color:#A89EC4;max-width:580px;margin:0 auto 44px;line-height:1.8;position:relative;animation:fadeUp .7s ease .2s both}
-    .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;animation:fadeUp .7s ease .3s both}
-    .btn-fire{background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;padding:16px 36px;border-radius:50px;font-weight:700;font-size:1rem;box-shadow:0 6px 28px rgba(255,92,53,.35);display:inline-block;transition:transform .2s,box-shadow .2s}
-    .btn-fire:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,92,53,.45)}
-    .btn-outline{border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);padding:16px 36px;border-radius:50px;font-size:1rem;transition:all .2s;display:inline-block}
-    .btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
-    .hero-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:48px;position:relative;animation:fadeUp .7s ease .4s both}
-    .chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.75);border-radius:50px;padding:7px 16px;font-size:.8rem;backdrop-filter:blur(4px)}
+/* ═══════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════ */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 
-    /* STATS */
-    .stats-strip{background:linear-gradient(90deg,var(--purple),#9B2FF7,var(--pink));display:flex;justify-content:center;flex-wrap:wrap}
-    .stat-item{text-align:center;padding:26px 44px;border-right:1px solid rgba(255,255,255,.15);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
-    .stat-item.visible{opacity:1;transform:translateY(0)}
-    .stat-item:last-child{border-right:none}
-    .stat-value{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
-    .stat-label{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:3px;letter-spacing:.8px;text-transform:uppercase}
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:68px;
+  background:rgba(4,9,30,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:700;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.nav-logo span{font-size:1.5rem;-webkit-text-fill-color:initial}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{
+  font-size:.85rem;color:var(--muted);font-weight:500;
+  transition:color .2s;letter-spacing:.5px;text-transform:uppercase;font-size:.75rem;
+}
+.nav-links a:hover{color:var(--teal)}
+.nav-fb-btn{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#1877F2,#0C5BC7);
+  color:#fff;padding:9px 20px;border-radius:8px;
+  font-weight:600;font-size:.85rem;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(24,119,242,0.3);
+}
+.nav-fb-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(24,119,242,0.45)}
+.fb-icon{font-size:1rem}
 
-    /* DAILY BANNER */
-    .daily-banner{background:linear-gradient(135deg,#FFF3E0,#FFF8E1);border-left:5px solid var(--amber);padding:18px 6vw;display:flex;align-items:center;gap:16px;border-top:1px solid #FFE082;border-bottom:1px solid #FFE082}
-    .daily-icon{font-size:1.6rem;flex-shrink:0}
-    .daily-label{font-size:.7rem;font-weight:700;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
-    .daily-text{font-size:.95rem;color:#4A3500;line-height:1.5}
+/* ═══════════════════════════════════════
+   NEWS TICKER
+═══════════════════════════════════════ */
+.ticker-wrap{
+  position:fixed;top:68px;left:0;right:0;z-index:499;
+  background:linear-gradient(90deg,var(--coral),#FF7043,var(--gold));
+  height:36px;display:flex;align-items:center;overflow:hidden;
+}
+.ticker-label{
+  background:rgba(0,0,0,0.35);
+  padding:0 14px;height:100%;display:flex;align-items:center;
+  font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  white-space:nowrap;flex-shrink:0;border-right:1px solid rgba(255,255,255,0.2);
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:ticker 55s linear infinite;
+  white-space:nowrap;
+}
+.ticker-item{
+  padding:0 40px;font-size:.78rem;font-weight:600;
+  border-right:1px solid rgba(255,255,255,0.25);
+  display:flex;align-items:center;gap:8px;height:36px;
+}
+.ticker-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.7);flex-shrink:0}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    /* TIP GENERATOR */
-    .tip-section{padding:72px 6vw;background:var(--offwhite)}
-    .tip-card{max-width:820px;margin:0 auto;background:var(--white);border-radius:24px;padding:44px;border:1.5px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .tip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--pink),var(--orange))}
-    .tip-header{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
-    .tip-icon-box{width:56px;height:56px;border-radius:16px;flex-shrink:0;background:linear-gradient(135deg,var(--purple),var(--violet));display:flex;align-items:center;justify-content:center;font-size:1.6rem}
-    .tip-header h2{font-family:'Syne',sans-serif;font-size:1.5rem;margin-bottom:6px;color:var(--ink)}
-    .tip-header p{color:var(--muted);font-size:.9rem}
-    .tip-row{display:flex;gap:12px;flex-wrap:wrap}
-    .tip-select{flex:1;min-width:220px;padding:13px 16px;border-radius:12px;border:1.5px solid var(--border);background:#F7F5FF;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--text);cursor:pointer;outline:none;transition:border-color .2s}
-    .tip-select:focus{border-color:var(--purple)}
-    .tip-btn{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px 28px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .2s;white-space:nowrap;box-shadow:0 4px 20px rgba(108,47,242,.3)}
-    .tip-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 28px rgba(108,47,242,.4)}
-    .tip-btn:disabled{opacity:.6;cursor:not-allowed}
-    .tip-result{display:flex;gap:16px;align-items:flex-start;background:linear-gradient(135deg,#F5F0FF,#FFF0F8);border:1.5px solid #E2D4FF;border-left:4px solid var(--purple);border-radius:14px;padding:22px;margin-top:22px;animation:fadeUp .4s ease}
-    .tip-result-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
-    .tip-result p{font-size:.95rem;line-height:1.8;color:var(--ink)}
-    .ld{display:flex;gap:8px;align-items:center;margin-top:22px;color:var(--muted);font-size:.9rem}
-    .ld span{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--purple);animation:bounce 1.2s infinite}
-    .ld span:nth-child(2){animation-delay:.2s}.ld span:nth-child(3){animation-delay:.4s}
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:160px 6vw 100px;
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 20% 50%,rgba(0,212,255,0.12) 0%,transparent 50%),
+             radial-gradient(ellipse at 80% 30%,rgba(168,85,247,0.12) 0%,transparent 50%),
+             radial-gradient(ellipse at 50% 80%,rgba(255,78,106,0.08) 0%,transparent 50%),
+             var(--navy);
+}
+#particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.particle{
+  position:absolute;border-radius:50%;pointer-events:none;
+  animation:particleDrift linear infinite;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(0,212,255,0.3);border-radius:50px;
+  padding:8px 22px;margin-bottom:32px;
+  background:rgba(0,212,255,0.07);
+  font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);
+  animation:fadeUp .7s ease both;position:relative;
+}
+.live-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 12px var(--lime);animation:livePulse 1.5s infinite;
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,8vw,6.5rem);
+  font-weight:700;line-height:1.0;margin-bottom:28px;
+  position:relative;animation:fadeUp .8s ease .1s both;
+}
+.h1-line1{display:block;color:var(--white)}
+.h1-line2{
+  display:block;font-style:italic;
+  background:linear-gradient(90deg,var(--teal) 0%,var(--violet) 50%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200%;animation:gradShift 4s ease infinite;
+}
+@keyframes gradShift{0%,100%{background-position:0%}50%{background-position:100%}}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);
+  max-width:620px;margin:0 auto 48px;line-height:1.8;
+  font-weight:300;animation:fadeUp .8s ease .2s both;
+}
+.hero-actions{
+  display:flex;gap:18px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp .8s ease .3s both;margin-bottom:60px;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--teal),#0099CC);
+  color:var(--navy);padding:16px 38px;border-radius:10px;
+  font-weight:800;font-size:1rem;letter-spacing:.3px;
+  box-shadow:0 8px 32px rgba(0,212,255,0.3);
+  transition:transform .2s,box-shadow .2s;display:inline-block;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,212,255,0.45)}
+.btn-ghost{
+  border:1.5px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85);
+  padding:16px 38px;border-radius:10px;font-size:1rem;
+  transition:all .2s;display:inline-block;font-weight:500;
+  backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{
+  display:flex;gap:0;justify-content:center;flex-wrap:wrap;
+  border:1px solid var(--border);border-radius:20px;
+  background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);
+  overflow:hidden;max-width:720px;margin:0 auto;
+  animation:fadeUp .8s ease .4s both;
+}
+.h-stat{
+  padding:24px 40px;border-right:1px solid var(--border);text-align:center;flex:1;
+  transition:background .3s;
+}
+.h-stat:hover{background:rgba(0,212,255,0.06)}
+.h-stat:last-child{border-right:none}
+.h-stat-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:700;
+  background:linear-gradient(135deg,var(--teal),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.h-stat-label{font-size:.72rem;color:var(--muted);margin-top:4px;letter-spacing:.8px;text-transform:uppercase}
 
-    /* POSTS */
-    .posts-section{padding:72px 6vw;max-width:1140px;margin:0 auto}
-    .sl{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
-    .st{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:12px;color:var(--ink)}
-    .ss{color:var(--muted);font-size:.95rem;max-width:520px;margin-bottom:40px;line-height:1.7}
-    .posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-    .post-card{background:var(--white);border-radius:var(--radius);padding:28px;border:1.5px solid var(--border);cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-    .post-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(108,47,242,.12)}
-    .post-accent{position:absolute;top:0;left:0;right:0;height:4px}
-    .post-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:50px;margin-bottom:16px;margin-top:8px}
-    .post-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:12px;line-height:1.35;color:var(--ink)}
-    .post-meta{display:flex;gap:6px;align-items:center;font-size:.75rem;color:#999;flex-wrap:wrap}
-    .post-chip{padding:2px 9px;border-radius:50px;font-size:.7rem;font-weight:700}
-    .post-body{font-size:.9rem;line-height:1.8;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px dashed var(--border);animation:fadeUp .3s ease}
-    .read-more{margin-top:14px;font-size:.82rem;font-weight:700;transition:color .2s}
+/* ═══════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════ */
+.s-label{
+  font-size:.7rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:12px;
+}
+.s-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:16px;
+}
+.s-sub{color:var(--muted);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:44px}
 
-    /* FOLLOW */
-    .follow-section{padding:80px 6vw;text-align:center;background:linear-gradient(145deg,#0D0D1A 0%,#1A1040 100%);position:relative;overflow:hidden}
-    .follow-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(108,47,242,.2) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(255,92,53,.15) 0%,transparent 50%);pointer-events:none}
-    .follow-desc{color:#A89EC4;font-size:1rem;max-width:560px;margin:0 auto 48px;line-height:1.8}
-    .platforms-row{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;position:relative}
-    .plat-card{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;width:176px;text-align:center;transition:all .25s;cursor:pointer}
-    .plat-card:hover{background:rgba(255,255,255,.12);transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
-    .plat-icon{width:52px;height:52px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900}
-    .plat-name{color:#fff;font-weight:700;font-size:.95rem;margin-bottom:4px}
-    .plat-handle{color:rgba(168,158,196,.7);font-size:.75rem;margin-bottom:18px}
-    .plat-btn{padding:9px 0;border-radius:10px;font-size:.82rem;font-weight:700;color:#fff}
+/* ═══════════════════════════════════════
+   DAILY TIP
+═══════════════════════════════════════ */
+.daily-section{
+  padding:0 5vw;background:var(--deep);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.daily-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:stretch;gap:0;
+}
+.daily-badge{
+  background:linear-gradient(180deg,var(--gold),#E59400);
+  color:var(--navy);padding:0 28px;
+  display:flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  flex-shrink:0;min-height:64px;
+}
+.daily-content{
+  padding:18px 32px;flex:1;
+  display:flex;align-items:center;gap:16px;
+}
+.daily-icon-wrap{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,184,0,0.15);border:1px solid rgba(255,184,0,0.3);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.daily-text{font-size:.92rem;line-height:1.6;color:#D0D8FF}
+#dailyTipText{font-weight:500;color:var(--white)}
+.daily-nav{
+  padding:0 24px;display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.daily-arr{
+  width:32px;height:32px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  color:var(--muted);font-size:.9rem;transition:all .2s;background:none;
+}
+.daily-arr:hover{border-color:var(--gold);color:var(--gold)}
 
-    /* FORM */
-    .form-section{padding:80px 6vw;background:var(--offwhite)}
-    .form-card{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;border-radius:28px;overflow:hidden;box-shadow:0 20px 80px rgba(108,47,242,.18);border:1.5px solid var(--border)}
-    .form-left{background:linear-gradient(145deg,#1A1040 0%,#2D1060 100%);padding:56px 44px;position:relative;overflow:hidden}
-    .form-left::after{content:'';position:absolute;bottom:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(108,47,242,.3) 0%,transparent 70%);pointer-events:none}
-    .form-title{font-family:'Syne',sans-serif;color:#fff;font-size:1.8rem;font-weight:800;margin:10px 0 30px;line-height:1.25}
-    .benefit-list{list-style:none}
-    .benefit-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;font-size:.9rem;line-height:1.55;color:#C4B8E8}
-    .check-icon{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:1px;background:rgba(108,47,242,.3);border:1.5px solid var(--violet);color:var(--cyan);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-    .form-right{background:var(--white);padding:56px 44px}
-    .form-right label{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:7px}
-    .form-right input,.form-right select{width:100%;padding:13px 16px;border-radius:12px;border:1.5px solid var(--border);background:#F7F5FF;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--text);margin-bottom:18px;outline:none;transition:border-color .2s,box-shadow .2s}
-    .form-right input:focus,.form-right select:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(108,47,242,.1)}
-    .submit-btn{width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:16px;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .2s;box-shadow:0 6px 28px rgba(108,47,242,.3);margin-top:6px}
-    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(108,47,242,.4)}
-    .form-note{font-size:.76rem;color:#bbb;text-align:center;margin-top:12px}
-    .success-box{text-align:center;padding:40px 20px;animation:fadeUp .4s ease}
-    .success-tick{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 20px;box-shadow:0 8px 32px rgba(108,47,242,.35)}
-    .success-box h3{font-family:'Syne',sans-serif;font-size:1.6rem;color:var(--purple);margin-bottom:12px}
-    .success-box p{color:var(--muted);font-size:.93rem;line-height:1.7}
+/* ═══════════════════════════════════════
+   NEWS SECTION
+═══════════════════════════════════════ */
+.news-section{padding:80px 5vw;background:var(--navy)}
+.news-inner{max-width:1200px;margin:0 auto}
+.news-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.news-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.news-tab{
+  padding:8px 20px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;
+  border:1.5px solid var(--border);color:var(--muted);transition:all .2s;background:none;
+}
+.news-tab.active,.news-tab:hover{border-color:var(--teal);color:var(--teal);background:rgba(0,212,255,0.08)}
+.news-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;
+  gap:20px;
+}
+.news-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  position:relative;
+}
+.news-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4);border-color:rgba(0,212,255,0.2)}
+.news-card.featured{grid-row:1/3}
+.news-img{
+  width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--card2),#1A2060);
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  position:relative;overflow:hidden;
+}
+.news-card.featured .news-img{aspect-ratio:4/3;font-size:4rem}
+.news-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(4,9,30,0.8) 0%,transparent 60%);
+}
+.news-img-pattern{
+  position:absolute;inset:0;opacity:0.08;
+  background-image:radial-gradient(circle at 20% 50%,rgba(0,212,255,1) 0%,transparent 50%),
+                   radial-gradient(circle at 80% 20%,rgba(255,184,0,1) 0%,transparent 50%);
+}
+.news-badge{
+  position:absolute;top:14px;left:14px;
+  padding:4px 12px;border-radius:6px;
+  font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+}
+.news-body{padding:20px}
+.news-card.featured .news-body{padding:24px}
+.news-meta{
+  display:flex;align-items:center;gap:10px;
+  font-size:.72rem;color:var(--muted);margin-bottom:10px;
+}
+.news-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.news-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;line-height:1.3;color:var(--white);
+  margin-bottom:12px;transition:color .2s;
+}
+.news-card.featured .news-title{font-size:1.5rem}
+.news-title-sm{font-size:1rem}
+.news-card:hover .news-title{color:var(--teal)}
+.news-excerpt{font-size:.85rem;color:var(--muted);line-height:1.7;display:none}
+.news-card.featured .news-excerpt{display:block}
+.news-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:14px;
+}
+.news-tag{
+  font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:5px;
+  background:rgba(0,212,255,0.12);color:var(--teal);
+}
+.news-arrow{color:var(--muted);font-size:.9rem;transition:all .2s}
+.news-card:hover .news-arrow{color:var(--teal);transform:translateX(4px)}
 
-    /* WHY */
-    .why-section{padding:80px 6vw;background:#fff}
-    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;max-width:980px;margin:0 auto}
-    .why-card{border-radius:var(--radius);padding:30px 26px;border:1.5px solid var(--border);background:var(--white);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-    .why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .why-card-bar{position:absolute;top:0;left:0;right:0;height:3px}
-    .why-icon{font-size:2.2rem;margin-bottom:16px;display:block}
-    .why-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;color:var(--ink);margin-bottom:8px}
-    .why-card p{font-size:.87rem;color:var(--muted);line-height:1.7}
+/* ═══════════════════════════════════════
+   TIPS GENERATOR
+═══════════════════════════════════════ */
+.tips-section{
+  padding:80px 5vw;
+  background:linear-gradient(135deg,#060E30 0%,var(--deep) 100%);
+  position:relative;overflow:hidden;
+}
+.tips-section::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(168,85,247,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.tips-inner{max-width:900px;margin:0 auto;position:relative}
+.tips-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:24px;overflow:hidden;
+}
+.tips-card-top{
+  height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--violet),var(--coral),var(--gold));
+  background-size:300%;animation:gradShift 3s linear infinite;
+}
+.tips-card-inner{padding:44px}
+.tips-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:32px}
+.tips-icon{
+  width:60px;height:60px;border-radius:16px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(168,85,247,0.2));
+  border:1px solid rgba(0,212,255,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+}
+.tips-header h2{
+  font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:6px;color:var(--white);
+}
+.tips-header p{color:var(--muted);font-size:.93rem;line-height:1.6}
+.tips-row{display:flex;gap:14px;flex-wrap:wrap}
+.tips-select{
+  flex:1;min-width:240px;padding:14px 18px;border-radius:12px;
+  border:1.5px solid var(--border);background:rgba(255,255,255,0.04);
+  color:var(--white);font-family:'Outfit',sans-serif;font-size:.95rem;
+  outline:none;cursor:pointer;transition:border-color .2s;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A85B0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;
+  background-size:12px;padding-right:40px;
+  background-color:rgba(255,255,255,0.04);
+}
+.tips-select:focus{border-color:var(--teal)}
+.tips-btn{
+  background:linear-gradient(135deg,var(--teal),#0090C8);
+  color:var(--navy);border:none;padding:14px 30px;border-radius:12px;
+  font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;
+  cursor:pointer;transition:transform .15s,box-shadow .2s;
+  box-shadow:0 6px 24px rgba(0,212,255,0.25);white-space:nowrap;
+}
+.tips-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,212,255,0.4)}
+.tips-btn:disabled{opacity:.5;cursor:not-allowed}
+.tips-result{
+  margin-top:24px;padding:24px 28px;
+  background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(168,85,247,0.06));
+  border:1px solid rgba(0,212,255,0.2);border-left:4px solid var(--teal);
+  border-radius:14px;animation:fadeUp .4s ease;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.tips-result-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.tips-result p{font-size:.97rem;line-height:1.85;color:#D0D8FF}
+.tips-loader{
+  display:flex;gap:8px;align-items:center;margin-top:24px;color:var(--muted);font-size:.9rem;
+}
+.tips-loader span{
+  width:8px;height:8px;border-radius:50%;background:var(--teal);
+  display:inline-block;animation:bounceDot 1.2s infinite;
+}
+.tips-loader span:nth-child(2){animation-delay:.2s}
+.tips-loader span:nth-child(3){animation-delay:.4s}
 
-    /* FOOTER */
-    footer{background:linear-gradient(145deg,#0D0D1A,#1A1040);padding:56px 6vw 32px}
-    .footer-inner{max-width:760px;margin:0 auto;text-align:center}
-    .footer-brand{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:14px;background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .footer-text{color:#6B6B9A;font-size:.9rem;line-height:1.8;margin-bottom:22px}
-    .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-    .footer-links a{color:#5A5A8A;font-size:.82rem;transition:color .2s}
-    .footer-links a:hover{color:var(--violet)}
-    .footer-copy{color:#3A3A5A;font-size:.75rem;padding-top:22px;border-top:1px solid rgba(255,255,255,.06)}
+/* ═══════════════════════════════════════
+   INSIGHTS / POSTS
+═══════════════════════════════════════ */
+.insights-section{padding:80px 5vw;background:var(--navy)}
+.insights-inner{max-width:1200px;margin:0 auto}
+.insights-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;
+}
+.insight-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:18px;padding:30px;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  position:relative;overflow:hidden;
+}
+.insight-card::after{
+  content:'';position:absolute;inset:0;border-radius:18px;
+  background:linear-gradient(135deg,rgba(0,212,255,0.04),rgba(168,85,247,0.04));
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.insight-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4);border-color:rgba(0,212,255,0.25)}
+.insight-card:hover::after{opacity:1}
+.insight-top-bar{height:3px;border-radius:2px;margin-bottom:22px;width:40px;transition:width .3s}
+.insight-card:hover .insight-top-bar{width:100%}
+.insight-cat{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.insight-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:700;line-height:1.35;
+  color:var(--white);margin-bottom:14px;transition:color .2s;
+}
+.insight-card:hover .insight-title{color:var(--teal)}
+.insight-meta{display:flex;gap:8px;align-items:center;font-size:.72rem;color:var(--muted);margin-bottom:16px}
+.insight-body{
+  font-size:.88rem;line-height:1.8;color:var(--muted);
+  border-top:1px solid var(--border);padding-top:16px;margin-top:4px;
+  animation:fadeUp .3s ease;
+}
+.insight-readmore{
+  margin-top:16px;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:6px;
+  transition:gap .2s;
+}
+.insight-card:hover .insight-readmore{gap:10px}
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,198,255,.25)}50%{box-shadow:0 0 0 7px rgba(0,198,255,.08)}}
-    @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
-    @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+/* ═══════════════════════════════════════
+   WHY SECTION
+═══════════════════════════════════════ */
+.why-section{
+  padding:80px 5vw;
+  background:linear-gradient(180deg,var(--navy) 0%,var(--deep) 100%);
+  position:relative;overflow:hidden;
+}
+.why-section::before{
+  content:'';position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);
+  width:800px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,0.05) 0%,transparent 70%);
+}
+.why-inner{max-width:1200px;margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.why-card{
+  padding:32px 28px;border-radius:18px;
+  background:var(--card);border:1px solid var(--border);
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+  position:relative;overflow:hidden;
+}
+.why-card:hover{transform:translateY(-5px);border-color:rgba(0,212,255,0.2);box-shadow:0 16px 48px rgba(0,0,0,0.3)}
+.why-card-glow{
+  position:absolute;top:-60px;right:-60px;width:150px;height:150px;border-radius:50%;
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.why-card:hover .why-card-glow{opacity:1}
+.why-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem;font-weight:700;line-height:1;
+  background:linear-gradient(135deg,var(--teal),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:16px;opacity:.25;
+}
+.why-icon{font-size:2.4rem;margin-bottom:16px;display:block}
+.why-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.why-card p{font-size:.87rem;color:var(--muted);line-height:1.75}
 
-    @media(max-width:740px){.form-card{grid-template-columns:1fr}.form-left,.form-right{padding:36px 28px}.nav-links{display:none}.tip-card{padding:28px 22px}.stat-item{padding:22px 24px}}
-  </style>
+/* ═══════════════════════════════════════
+   FACEBOOK COMMUNITY
+═══════════════════════════════════════ */
+.fb-section{
+  padding:100px 5vw;
+  background:linear-gradient(145deg,#0A0520 0%,#0D0F2E 50%,#050D20 100%);
+  position:relative;overflow:hidden;
+}
+.fb-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(24,119,242,0.15) 0%,transparent 60%);
+}
+.fb-inner{max-width:960px;margin:0 auto;text-align:center;position:relative}
+.fb-giant-icon{
+  width:100px;height:100px;border-radius:28px;
+  background:linear-gradient(135deg,#1877F2,#0C5BC7);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;margin:0 auto 32px;
+  box-shadow:0 20px 60px rgba(24,119,242,0.4);
+  animation:iconFloat 3s ease-in-out infinite;
+}
+@keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.fb-section .s-label{color:#74AAFF}
+.fb-section .s-title{color:var(--white)}
+.fb-desc{color:var(--muted);font-size:1.05rem;max-width:620px;margin:0 auto 48px;line-height:1.8}
+.fb-perks{
+  display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:48px;
+}
+.fb-perk{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(24,119,242,0.1);border:1px solid rgba(24,119,242,0.2);
+  padding:10px 20px;border-radius:50px;font-size:.85rem;color:#90C4FF;
+}
+.fb-perk-icon{font-size:1rem}
+.fb-join-btn{
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,#1877F2,#1464D6,#0C5BC7);
+  color:#fff;padding:20px 48px;border-radius:14px;
+  font-size:1.1rem;font-weight:700;letter-spacing:.3px;
+  box-shadow:0 12px 48px rgba(24,119,242,0.4);
+  transition:transform .25s,box-shadow .25s;
+  position:relative;overflow:hidden;
+}
+.fb-join-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.fb-join-btn:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(24,119,242,0.55)}
+.fb-join-btn:hover::before{opacity:1}
+.fb-join-icon{font-size:1.4rem}
+.fb-members{
+  margin-top:28px;font-size:.85rem;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.fb-avatars{display:flex}
+.fb-av{
+  width:28px;height:28px;border-radius:50%;border:2px solid var(--deep);
+  background:linear-gradient(135deg,var(--teal),var(--violet));
+  display:flex;align-items:center;justify-content:center;font-size:.6rem;
+  margin-left:-6px;first-child{margin-left:0}
+}
+.fb-count{font-weight:700;color:var(--white)}
+
+/* ═══════════════════════════════════════
+   ENQUIRY FORM
+═══════════════════════════════════════ */
+.form-section{
+  padding:80px 5vw;
+  background:var(--deep);border-top:1px solid var(--border);
+}
+.form-inner{max-width:1100px;margin:0 auto}
+.form-card{
+  display:grid;grid-template-columns:1fr 1.2fr;
+  border-radius:28px;overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 30px 100px rgba(0,0,0,0.5);
+}
+.form-left{
+  padding:56px 48px;
+  background:linear-gradient(145deg,rgba(0,212,255,0.08) 0%,rgba(168,85,247,0.06) 100%);
+  border-right:1px solid var(--border);position:relative;overflow:hidden;
+}
+.form-left::after{
+  content:'';position:absolute;bottom:-100px;left:-100px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,0.08) 0%,transparent 70%);
+}
+.form-left .s-label{color:var(--teal)}
+.form-left .s-title{font-size:1.9rem;color:var(--white)}
+.benefit-list{list-style:none;margin-top:28px}
+.benefit-item{
+  display:flex;gap:14px;align-items:flex-start;
+  margin-bottom:18px;font-size:.9rem;color:#B0BDDD;line-height:1.6;
+}
+.b-check{
+  width:22px;height:22px;border-radius:6px;flex-shrink:0;margin-top:2px;
+  background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);
+  color:var(--teal);font-size:.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.form-right{padding:56px 48px;background:var(--card)}
+.form-right label{
+  display:block;font-size:.72rem;font-weight:700;color:var(--muted);
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;
+}
+.form-right input,.form-right select{
+  width:100%;padding:14px 18px;border-radius:12px;
+  border:1.5px solid var(--border);background:rgba(255,255,255,0.04);
+  color:var(--white);font-family:'Outfit',sans-serif;font-size:.95rem;
+  margin-bottom:20px;outline:none;transition:border-color .2s,box-shadow .2s;
+  -webkit-appearance:none;
+}
+.form-right input::placeholder{color:var(--muted)}
+.form-right input:focus,.form-right select:focus{
+  border-color:var(--teal);box-shadow:0 0 0 4px rgba(0,212,255,0.1);
+}
+.form-right select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A85B0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:12px;
+  background-color:rgba(255,255,255,0.04);padding-right:40px;
+}
+.form-right select option{background:#1A2060;color:var(--white)}
+.submit-btn{
+  width:100%;background:linear-gradient(135deg,var(--teal),#0090C8);
+  color:var(--navy);border:none;padding:17px;border-radius:12px;
+  font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;
+  transition:transform .15s,box-shadow .2s;margin-top:4px;letter-spacing:.3px;
+  box-shadow:0 8px 28px rgba(0,212,255,0.25);
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,212,255,0.4)}
+.form-note{font-size:.75rem;color:var(--muted);text-align:center;margin-top:14px}
+.success-box{text-align:center;padding:32px 20px;animation:fadeUp .4s ease}
+.success-circle{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--teal),var(--violet));
+  display:flex;align-items:center;justify-content:center;font-size:2.2rem;
+  box-shadow:0 10px 40px rgba(0,212,255,0.3);
+}
+.success-box h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--teal);margin-bottom:12px}
+.success-box p{color:var(--muted);font-size:.93rem;line-height:1.75}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--navy);border-top:1px solid var(--border);
+  padding:56px 5vw 32px;
+}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.footer-brand-area .footer-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:14px;
+}
+.footer-tagline{color:var(--muted);font-size:.88rem;line-height:1.7;max-width:300px}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.footer-col a{display:block;color:#7A85B0;font-size:.88rem;margin-bottom:12px;transition:color .2s}
+.footer-col a:hover{color:var(--teal)}
+.footer-bottom{
+  max-width:1200px;margin:40px auto 0;
+  padding-top:24px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.footer-copy{color:var(--muted);font-size:.75rem}
+.footer-legal{color:var(--muted);font-size:.72rem;text-align:right;line-height:1.6}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(57,255,106,0.5)}70%{box-shadow:0 0 0 8px rgba(57,255,106,0)}}
+@keyframes particleDrift{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(-100vh) rotate(720deg);opacity:0}}
+@keyframes bounceDot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:960px){
+  .news-grid{grid-template-columns:1fr 1fr}
+  .news-card.featured{grid-column:1/3;grid-row:auto}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .form-card{grid-template-columns:1fr}
+  .form-left{padding:44px 36px}
+  .form-right{padding:44px 36px}
+}
+@media(max-width:640px){
+  .news-grid{grid-template-columns:1fr}
+  .news-card.featured{grid-column:auto}
+  .h-stat{padding:18px 20px}
+  .h-stat-val{font-size:1.5rem}
+  .nav-links{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .daily-badge{display:none}
+  .tips-card-inner{padding:28px 22px}
+}
+</style>
 </head>
 <body>
 
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">🏙️ <span class="grad">Real Estate Pulse</span></div>
-  <div class="nav-links">
-    <a href="#insights">Insights</a>
-    <a href="#why">Why Us</a>
-    <a href="#enquiry" class="nav-cta">Get Free Tips</a>
+  <div class="nav-logo"><span>🏙️</span> Real Estate Pulse</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#news">Market News</a>
+      <a href="#insights">Insights</a>
+      <a href="#enquiry">Free Digest</a>
+    </div>
+    <a href="https://www.facebook.com/groups/realestatepulseindia" target="_blank" class="nav-fb-btn">
+      <span class="fb-icon">f</span> Join on Facebook
+    </a>
   </div>
 </nav>
 
+<!-- NEWS TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">🔴 LIVE</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-badge"><span class="badge-dot"></span>LIVE · India Real Estate Intelligence</div>
-  <h1><span class="w">Stop Guessing.<br></span><span class="g">Invest With Clarity.</span></h1>
-  <p class="hero-sub">12 years of boots-on-ground market experience distilled into one weekly read. No sponsored posts. No developer tie-ups. Just honest, data-backed property insights.</p>
+  <canvas id="particles"></canvas>
+  <div class="hero-eyebrow">
+    <span class="live-dot"></span>
+    India's Sharpest Real Estate Intelligence
+  </div>
+  <h1>
+    <span class="h1-line1">The Market Doesn't</span>
+    <span class="h1-line2">Wait. Neither Should You.</span>
+  </h1>
+  <p class="hero-sub">
+    12 years on India's property floor — distilled into weekly signals that help you buy smarter,
+    invest better, and never miss a market shift again.
+  </p>
   <div class="hero-actions">
-    <a href="#enquiry" class="btn-fire">Get Free Weekly Insights →</a>
-    <a href="#insights" class="btn-outline">Browse Tips</a>
+    <a href="#enquiry" class="btn-primary">Get Free Weekly Insights →</a>
+    <a href="#news" class="btn-ghost">Today's Market News</a>
   </div>
-  <div class="hero-chips">
-    <span class="chip">📈 Market Timing</span>
-    <span class="chip">🏠 First-Buyer Guides</span>
-    <span class="chip">💰 Rental Yield Data</span>
-    <span class="chip">🌍 NRI Investment</span>
+  <div class="hero-stats">
+    <div class="h-stat"><div class="h-stat-val">4,200+</div><div class="h-stat-label">Active Followers</div></div>
+    <div class="h-stat"><div class="h-stat-val">₹340 Cr+</div><div class="h-stat-label">Deals Guided</div></div>
+    <div class="h-stat"><div class="h-stat-val">12 Yrs</div><div class="h-stat-label">Market Experience</div></div>
+    <div class="h-stat"><div class="h-stat-val">91%</div><div class="h-stat-label">Client Satisfaction</div></div>
   </div>
 </section>
 
-<div class="stats-strip" id="statsBar">
-  <div class="stat-item" style="transition-delay:.0s"><div class="stat-value">4,200+</div><div class="stat-label">Followers Growing</div></div>
-  <div class="stat-item" style="transition-delay:.12s"><div class="stat-value">₹340 Cr+</div><div class="stat-label">Deals Guided</div></div>
-  <div class="stat-item" style="transition-delay:.24s"><div class="stat-value">12 Yrs</div><div class="stat-label">Market Experience</div></div>
-  <div class="stat-item" style="transition-delay:.36s"><div class="stat-value">91%</div><div class="stat-label">Client Satisfaction</div></div>
-</div>
-
-<div class="daily-banner">
-  <div class="daily-icon">📅</div>
-  <div>
-    <div class="daily-label">Tip of the Day</div>
-    <div class="daily-text" id="dailyTip">Loading today's insight…</div>
+<!-- DAILY TIP BAR -->
+<div class="daily-section">
+  <div class="daily-inner">
+    <div class="daily-badge">📅 Tip of the Day</div>
+    <div class="daily-content">
+      <div class="daily-icon-wrap">💡</div>
+      <div class="daily-text"><span id="dailyTipText">Loading today's insight…</span></div>
+    </div>
+    <div class="daily-nav">
+      <button class="daily-arr" onclick="prevTip()">←</button>
+      <button class="daily-arr" onclick="nextTip()">→</button>
+    </div>
   </div>
 </div>
 
-<section class="tip-section">
-  <div class="tip-card">
-    <div class="tip-header">
-      <div class="tip-icon-box">✨</div>
+<!-- PROPERTY NEWS -->
+<section class="news-section" id="news">
+  <div class="news-inner">
+    <div class="news-header">
       <div>
-        <h2>Get Your Personalised Property Tip</h2>
-        <p>Pick your situation — get a specific, honest insight instantly.</p>
+        <div class="s-label" style="color:var(--coral)">🔴 Latest Property News</div>
+        <h2 class="s-title" style="margin-bottom:0">What's Happening in<br>India's Real Estate Market</h2>
+      </div>
+      <div class="news-tabs">
+        <button class="news-tab active" onclick="filterNews('all',this)">All</button>
+        <button class="news-tab" onclick="filterNews('policy',this)">Policy</button>
+        <button class="news-tab" onclick="filterNews('market',this)">Market</button>
+        <button class="news-tab" onclick="filterNews('invest',this)">Investment</button>
       </div>
     </div>
-    <div class="tip-row">
-      <select class="tip-select" id="tipInterest">
-        <option value="first">Buying my first home</option>
-        <option value="invest">Investment / rental property</option>
-        <option value="yield">Maximising rental yield</option>
-        <option value="sell">Selling my property</option>
-        <option value="value">Understanding property valuation</option>
-        <option value="nri">NRI investing in India</option>
-      </select>
-      <button class="tip-btn" id="tipBtn" onclick="showTip()">Get My Tip →</button>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- TIPS GENERATOR -->
+<section class="tips-section" id="tips">
+  <div class="tips-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:44px">
+      <div class="s-label" style="color:var(--violet)">✨ Personalised Advisor</div>
+      <h2 class="s-title">Your Situation. Your Strategy.</h2>
     </div>
-    <div class="ld" id="tipLoading" style="display:none"><span></span><span></span><span></span> Fetching your insight…</div>
-    <div class="tip-result" id="tipResult" style="display:none">
-      <div class="tip-result-icon">💡</div>
-      <p id="tipText"></p>
+    <div class="tips-card reveal">
+      <div class="tips-card-top"></div>
+      <div class="tips-card-inner">
+        <div class="tips-header">
+          <div class="tips-icon">🧠</div>
+          <div>
+            <h2>Get Your Personalised Property Tip</h2>
+            <p>Pick your situation — get a specific, honest insight in seconds. No generic advice.</p>
+          </div>
+        </div>
+        <div class="tips-row">
+          <select class="tips-select" id="tipInterest">
+            <option value="first">Buying my first home</option>
+            <option value="invest">Investment / rental property</option>
+            <option value="yield">Maximising rental yield</option>
+            <option value="sell">Selling my property</option>
+            <option value="value">Understanding property valuation</option>
+            <option value="nri">NRI investing in India</option>
+          </select>
+          <button class="tips-btn" id="tipsBtn" onclick="showTip()">Get My Tip →</button>
+        </div>
+        <div class="tips-loader" id="tipsLoader" style="display:none">
+          <span></span><span></span><span></span> Crafting your insight…
+        </div>
+        <div class="tips-result" id="tipsResult" style="display:none">
+          <div class="tips-result-icon">💡</div>
+          <p id="tipText"></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="posts-section" id="insights">
-  <div class="sl" style="color:var(--purple)">Latest Insights</div>
-  <h2 class="st">What the Market Is Actually Telling Us</h2>
-  <p class="ss">Click any card to read the full insight. No paywall. No login. Just honest market knowledge.</p>
-  <div class="posts-grid" id="postsGrid"></div>
+<!-- INSIGHTS -->
+<section class="insights-section" id="insights">
+  <div class="insights-inner">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px">
+      <div>
+        <div class="s-label" style="color:var(--teal)">📊 Market Insights</div>
+        <h2 class="s-title" style="margin-bottom:0">What the Market Is<br>Actually Telling Us</h2>
+      </div>
+      <p style="color:var(--muted);font-size:.88rem;max-width:280px;text-align:right;line-height:1.6">Click any card to expand the full insight. No paywall. No login.</p>
+    </div>
+    <div class="insights-grid" id="insightsGrid"></div>
+  </div>
 </section>
 
+<!-- WHY -->
 <section class="why-section" id="why">
-  <div style="max-width:980px;margin:0 auto">
-    <div class="sl" style="color:var(--purple);text-align:center">Why Real Estate Pulse</div>
-    <h2 class="st" style="text-align:center;max-width:580px;margin:0 auto 44px">What Makes This Different From Every Other Property Page</h2>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-card-bar" style="background:linear-gradient(90deg,var(--purple),var(--violet))"></div><span class="why-icon">🎯</span><h3>Specific, Not Generic</h3><p>No "real estate is great" fluff. Every tip is specific to corridors, unit types, and current timing — something you can actually act on.</p></div>
-      <div class="why-card"><div class="why-card-bar" style="background:linear-gradient(90deg,var(--orange),var(--amber))"></div><span class="why-icon">📊</span><h3>Data-Backed Always</h3><p>Every recommendation is grounded in rental yield data, inventory absorption rates, and micro-market comparables — not gut feel.</p></div>
-      <div class="why-card"><div class="why-card-bar" style="background:linear-gradient(90deg,var(--pink),#FF85A1)"></div><span class="why-icon">🤝</span><h3>Zero Hidden Agenda</h3><p>No developer tie-ups, no broker referrals, no commissions. The advice is independent — the only way it stays honest.</p></div>
-      <div class="why-card"><div class="why-card-bar" style="background:linear-gradient(90deg,var(--cyan),#00E5FF)"></div><span class="why-icon">⏱️</span><h3>Timing Is Everything</h3><p>Most investors lose on timing, not on the property itself. We help you read the signals before the crowd does.</p></div>
+  <div class="why-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:50px">
+      <div class="s-label" style="color:var(--gold)">Why 4,200 Followers Trust Us</div>
+      <h2 class="s-title">We Say What Others Won't</h2>
+    </div>
+    <div class="why-grid" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- FACEBOOK COMMUNITY -->
+<section class="fb-section" id="community">
+  <div class="fb-inner reveal">
+    <div class="fb-giant-icon">f</div>
+    <div class="s-label">🤝 Join Our Community</div>
+    <h2 class="s-title">4,200+ Smart Investors.<br>One Facebook Group.</h2>
+    <p class="fb-desc">
+      Get daily market alerts, live Q&amp;A sessions, member deal reviews, and exclusive content
+      not published anywhere else — all in one free Facebook group.
+    </p>
+    <div class="fb-perks">
+      <div class="fb-perk"><span class="fb-perk-icon">📢</span>Daily Market Alerts</div>
+      <div class="fb-perk"><span class="fb-perk-icon">🎙️</span>Live Q&amp;A Sessions</div>
+      <div class="fb-perk"><span class="fb-perk-icon">🔍</span>Deal Reviews by Experts</div>
+      <div class="fb-perk"><span class="fb-perk-icon">🔒</span>Members-Only Tips</div>
+      <div class="fb-perk"><span class="fb-perk-icon">🆓</span>100% Free Forever</div>
+    </div>
+    <a href="https://www.facebook.com/groups/realestatepulseindia" target="_blank" class="fb-join-btn">
+      <span class="fb-join-icon">f</span>
+      Join the Facebook Group — It's Free
+    </a>
+    <div class="fb-members">
+      <div class="fb-avatars">
+        <div class="fb-av">RK</div>
+        <div class="fb-av">AS</div>
+        <div class="fb-av">PM</div>
+        <div class="fb-av">VN</div>
+        <div class="fb-av">DJ</div>
+      </div>
+      &nbsp;<span class="fb-count">4,200+</span>&nbsp;members already inside
     </div>
   </div>
 </section>
 
-<section class="follow-section">
-  <div class="sl" style="color:var(--cyan)">Our Community</div>
-  <h2 class="st" style="color:#fff;max-width:640px;margin:0 auto 16px">Join 4,200+ Smart Property Followers</h2>
-  <p class="follow-desc">No spam. No sales pitch. Weekly market reads, timing signals, and investment frameworks across every platform you already use.</p>
-  <div class="platforms-row">
-    <div class="plat-card"><div class="plat-icon" style="background:rgba(10,102,194,.2);color:#5BA4E8">in</div><div class="plat-name">LinkedIn</div><div class="plat-handle">@realestatepulse</div><div class="plat-btn" style="background:linear-gradient(135deg,#0A66C2,#1A7FE8)">Follow</div></div>
-    <div class="plat-card"><div class="plat-icon" style="background:rgba(225,48,108,.2);color:#FF7BAC">📷</div><div class="plat-name">Instagram</div><div class="plat-handle">@realpulse.in</div><div class="plat-btn" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">Follow</div></div>
-    <div class="plat-card"><div class="plat-icon" style="background:rgba(255,0,0,.15);color:#FF6B6B">▶</div><div class="plat-name">YouTube</div><div class="plat-handle">Real Estate Pulse</div><div class="plat-btn" style="background:linear-gradient(135deg,#FF0000,#CC0000)">Subscribe</div></div>
-  </div>
-</section>
-
+<!-- ENQUIRY FORM -->
 <section class="form-section" id="enquiry">
-  <div class="form-card">
-    <div class="form-left">
-      <div class="sl" style="color:var(--cyan)">Free Weekly Digest</div>
-      <h2 class="form-title">Never Miss a Market Shift Again</h2>
-      <ul class="benefit-list">
-        <li class="benefit-item"><span class="check-icon">✓</span>Weekly market timing signals</li>
-        <li class="benefit-item"><span class="check-icon">✓</span>Undervalued area spotlights</li>
-        <li class="benefit-item"><span class="check-icon">✓</span>First-buyer &amp; investor frameworks</li>
-        <li class="benefit-item"><span class="check-icon">✓</span>Rental yield data by city</li>
-        <li class="benefit-item"><span class="check-icon">✓</span>1 exclusive tip weekly — not published anywhere else</li>
-      </ul>
+  <div class="form-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div class="s-label" style="color:var(--teal)">📬 Free Weekly Digest</div>
+      <h2 class="s-title">Never Miss a Market Shift</h2>
     </div>
-    <div class="form-right">
-      <!-- FORMSPREE: Replace YOUR_FORM_ID below with your Formspree form ID (e.g. xpzgkwlb) -->
-      <form id="leadForm" action="https://formspree.io/f/mdapdnnk" method="POST" onsubmit="handleSubmit(event)">
-        <label>Full Name *</label>
-        <input type="text" name="name" id="nameInput" placeholder="Rajesh Kumar" required/>
-        <label>Email Address *</label>
-        <input type="email" name="email" id="emailInput" placeholder="you@example.com" required/>
-        <label>Phone (for priority callback)</label>
-        <input type="tel" name="phone" placeholder="+91 98765 43210"/>
-        <label>City</label>
-        <input type="text" name="city" placeholder="Mumbai, Pune, Hyderabad…"/>
-        <label>I'm interested in</label>
-        <select name="interest">
-          <option>Buying my first home</option>
-          <option>Investment / rental property</option>
-          <option>Selling my property</option>
-          <option>NRI investment guidance</option>
-          <option>Just learning for now</option>
-        </select>
-        <button type="submit" class="submit-btn">Send Me Free Insights →</button>
-        <p class="form-note">Zero spam. Unsubscribe anytime. Your info stays private.</p>
-      </form>
-      <div class="success-box" id="successBox" style="display:none">
-        <div class="success-tick">🎉</div>
-        <h3>You're In!</h3>
-        <p id="successMsg"></p>
+    <div class="form-card reveal">
+      <div class="form-left">
+        <div class="s-label" style="color:var(--teal)">What You Get</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--white);margin:10px 0 0;line-height:1.3">One Email. All the Alpha.</h3>
+        <ul class="benefit-list">
+          <li class="benefit-item"><span class="b-check">✓</span>Weekly market timing signals</li>
+          <li class="benefit-item"><span class="b-check">✓</span>Undervalued corridor spotlights</li>
+          <li class="benefit-item"><span class="b-check">✓</span>First-buyer &amp; investor frameworks</li>
+          <li class="benefit-item"><span class="b-check">✓</span>City-wise rental yield data</li>
+          <li class="benefit-item"><span class="b-check">✓</span>1 exclusive tip — not published anywhere else</li>
+          <li class="benefit-item"><span class="b-check">✓</span>Priority callback for serious inquiries</li>
+        </ul>
+      </div>
+      <div class="form-right">
+        <form id="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
+          <label>Full Name *</label>
+          <input type="text" name="name" id="nameInput" placeholder="Rajesh Kumar" required/>
+          <label>Email Address *</label>
+          <input type="email" name="email" id="emailInput" placeholder="you@example.com" required/>
+          <label>Phone (for priority callback)</label>
+          <input type="tel" name="phone" placeholder="+91 98765 43210"/>
+          <label>City</label>
+          <input type="text" name="city" placeholder="Mumbai, Pune, Hyderabad…"/>
+          <label>I'm interested in</label>
+          <select name="interest">
+            <option>Buying my first home</option>
+            <option>Investment / rental property</option>
+            <option>Selling my property</option>
+            <option>NRI investment guidance</option>
+            <option>Just learning for now</option>
+          </select>
+          <button type="submit" class="submit-btn">Send Me Free Insights →</button>
+          <p class="form-note">🔒 Zero spam. Unsubscribe anytime. Your data stays private.</p>
+        </form>
+        <div class="success-box" id="successBox" style="display:none">
+          <div class="success-circle">🎉</div>
+          <h3>You're In!</h3>
+          <p id="successMsg"></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">🏙️ Real Estate Pulse</div>
-    <p class="footer-text">Honest, experience-backed property insights for India's modern investor and first-time buyer. Built on 12 years of field work — not textbooks.</p>
-    <div class="footer-links"><a href="#insights">Insights</a><a href="#enquiry">Newsletter</a><a href="#why">About</a></div>
-    <p class="footer-copy">© 2026 Real Estate Pulse. All content is original and for informational purposes only. Not financial or legal advice. Consult a qualified professional before investing.</p>
+    <div class="footer-brand-area">
+      <div class="footer-logo">🏙️ Real Estate Pulse</div>
+      <p class="footer-tagline">Honest, experience-backed property insights for India's modern investor. 12 years of field work — distilled for you.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="#news">Market News</a>
+      <a href="#insights">Insights</a>
+      <a href="#tips">Get a Tip</a>
+      <a href="#community">Facebook Group</a>
+      <a href="#enquiry">Free Digest</a>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <a href="https://www.facebook.com/groups/realestatepulseindia" target="_blank">📘 Facebook Group</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Real Estate Pulse India. All original content.</div>
+    <div class="footer-legal">Not financial or legal advice. Consult a qualified professional before investing.</div>
   </div>
 </footer>
 
 <script>
-const posts=[
-  {id:1,cat:"Market Pulse",icon:"📈",title:"Why 2025–26 Is a Buyer's Window Most People Will Miss",date:"Mar 28, 2026",read:"3 min",tag:"Timing",accent:"linear-gradient(90deg,#6C2FF2,#9B5CF6)",tagBg:"#F0EBFF",tagColor:"#6C2FF2",body:"Most buyers wait for rates to drop. Smart buyers know the window opens when competition is low — right now, inventory in key micro-markets is sitting 18% longer than last year. That lag is your negotiating power. When rates eventually ease, these same properties will attract 4–6 competing offers. The buyers who acted early will already be sitting on equity, while late entrants fight over table scraps."},
-  {id:2,cat:"Insider Tip",icon:"🔑",title:"The 'Boring Neighbourhood' Strategy That Built 3 Portfolios",date:"Mar 22, 2026",read:"4 min",tag:"Strategy",accent:"linear-gradient(90deg,#FF5C35,#FFB627)",tagBg:"#FFF3EE",tagColor:"#FF5C35",body:"Glamour neighbourhoods get media coverage. Boring neighbourhoods get returns. Look for areas with one anchor project — a new metro station, a university expansion, a tech campus — still 2–3 years out. Buy before the buzz. Early movers in three cities I've tracked quietly doubled their money while everyone else argued about whether the growth was real."},
-  {id:3,cat:"First-Timer Focus",icon:"🏠",title:"Don't Let the Pre-Approval Letter Trick You",date:"Mar 15, 2026",read:"3 min",tag:"Finance",accent:"linear-gradient(90deg,#FF3CAC,#FF85A1)",tagBg:"#FFF0F8",tagColor:"#FF3CAC",body:"Your bank will approve you for a number that sounds exciting. Ignore it. Calculate the 28% rule — your total housing cost (EMI + maintenance + insurance) should not exceed 28% of your gross monthly income. Banks don't care about your lifestyle. You should. Far more buyers regret stretching than regret being conservative. Your first home should give you stability, not financial anxiety."},
-  {id:4,cat:"Data Insight",icon:"📊",title:"3BHK vs. 2BHK: What the Rental Yield Data Actually Shows",date:"Mar 8, 2026",read:"5 min",tag:"Investment",accent:"linear-gradient(90deg,#00C6FF,#00E5FF)",tagBg:"#E8FAFF",tagColor:"#0099CC",body:"Everyone tells you 'bigger is better.' The yield numbers say otherwise. In most tier-2 cities, 2BHK units command 15–22% higher rental yield per sq.ft. than 3BHK units because the renter demographic is wider — young professionals, small families, couples. 3BHK sits. 2BHK rents. Unless you're targeting long-stay families in premium corridors, the data consistently leans smaller."}
-];
-const grid=document.getElementById("postsGrid");
-posts.forEach(p=>{
-  const card=document.createElement("article");
-  card.className="post-card";
-  card.innerHTML=`<div class="post-accent" style="background:${p.accent}"></div><div class="post-tag" style="background:${p.tagBg};color:${p.tagColor}">${p.icon} ${p.cat}</div><h3 class="post-title">${p.title}</h3><div class="post-meta"><span>${p.date}</span><span>·</span><span>${p.read} read</span><span class="post-chip" style="background:${p.tagBg};color:${p.tagColor}">#${p.tag}</span></div><div class="post-body" id="body-${p.id}" style="display:none">${p.body}</div><div class="read-more" id="rm-${p.id}" style="color:${p.tagColor}">Read more →</div>`;
-  card.addEventListener("click",()=>{const b=document.getElementById("body-"+p.id),r=document.getElementById("rm-"+p.id),open=b.style.display==="block";b.style.display=open?"none":"block";r.textContent=open?"Read more →":"Close ↑"});
-  grid.appendChild(card);
+/* ═══════════ CURSOR ═══════════ */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px'},60);
+});
+document.querySelectorAll('a,button,.news-card,.insight-card,.why-card,.plat-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.background='var(--gold)'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';cur.style.background='var(--teal)'});
 });
 
-const observer=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")}),{threshold:.2});
-document.querySelectorAll(".stat-item").forEach(s=>observer.observe(s));
+/* ═══════════ PARTICLES ═══════════ */
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let particles=[];
+function resizeCanvas(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+function createParticle(){
+  return{
+    x:Math.random()*canvas.width,y:canvas.height+10,
+    size:Math.random()*2+0.5,
+    speed:Math.random()*0.6+0.2,
+    opacity:Math.random()*0.5+0.1,
+    color:['#00D4FF','#A855F7','#FFB800','#FF4E6A','#39FF6A'][Math.floor(Math.random()*5)]
+  }
+}
+for(let i=0;i<60;i++)particles.push({...createParticle(),y:Math.random()*canvas.height});
+function animParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach((p,i)=>{
+    p.y-=p.speed;
+    if(p.y<-10)particles[i]=createParticle();
+    ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle=p.color;ctx.globalAlpha=p.opacity;ctx.fill();
+  });
+  ctx.globalAlpha=1;
+  requestAnimationFrame(animParticles);
+}
+animParticles();
 
-const tips={
-  first:"Before you fall in love with any property, get your finances sorted first — not the other way around. Calculate your actual affordability using the 28% rule: your total housing cost (EMI + maintenance + insurance) should not exceed 28% of your gross monthly income. Most first-time buyers stretch beyond this and spend years regretting it. The right home is one you can own comfortably, not one that owns you.",
-  invest:"The biggest mistake rental investors make is buying what they'd want to live in, rather than what the renter demographic actually needs. In most Indian tier-2 cities right now, 2BHK units near IT parks, universities, or metro corridors outperform 3BHK units by 15–22% on yield per sq.ft. Understand your renter before you understand the property — the tenant profile determines your return, not the square footage.",
-  yield:"If your property has been rented at the same rate for more than 18 months, you're almost certainly leaving money on the table. Research what comparable units in your micro-market are currently fetching — not 2 years ago, but active listings today. Fresh paint, professional photos, and listing on 2–3 platforms simultaneously can increase inquiry rate dramatically and justify a 10–15% rent revision without losing a good tenant.",
-  sell:"The worst time to sell is when you urgently need the money — buyers can smell desperation and it costs you lakhs in negotiation. If you can afford to wait, price it 5–7% above your realistic target and hold firm for 45–60 days before reviewing. In the current market, serious buyers will negotiate, but they won't walk away from a well-presented property priced within the realistic range of comparables.",
-  value:"In India, the gap between the circle rate and actual market value can be 20–60% depending on city and locality — this directly impacts stamp duty, registration cost, and loan eligibility. Always get an independent valuation from a registered valuer before buying or selling, rather than relying on the builder's price or broker's estimate. Understanding comparable sales, income capitalisation, and cost approach will help you spot whether a price is fair or just confidently stated.",
-  nri:"NRIs often buy in their hometown out of emotional connection rather than investment logic. While sentiment is understandable, the strongest rental yields and capital appreciation today are concentrated in Hyderabad, Pune, and Bengaluru — not necessarily your native city. Set up an NRO or NRE account specifically for property transactions to keep repatriation clean and compliant with FEMA regulations from day one."
-};
+/* ═══════════ TICKER ═══════════ */
+const tickerItems=[
+  {t:"RBI holds repo rate steady at 6.25% — home loan rates expected to ease in Q3 2026",c:"policy"},
+  {t:"Mumbai residential launches up 22% YoY — Thane micro-market leads absorption",c:"market"},
+  {t:"Hyderabad sees record IT corridor demand — 2BHK yields touch 4.8% annually",c:"invest"},
+  {t:"RERA compliance drives 35% drop in builder defaults — buyer confidence surges",c:"policy"},
+  {t:"Bengaluru North emerges as top appreciation zone — 18% price growth in 12 months",c:"market"},
+  {t:"NRI remittances to Indian real estate hit ₹1.2 lakh crore in FY26",c:"invest"},
+  {t:"Pune's Hinjewadi Phase 3 to add 45,000 units by 2028 — rental supply watch",c:"market"},
+  {t:"Stamp duty reduction in Maharashtra extended till September 2026",c:"policy"},
+  {t:"Commercial to residential conversion trend picks up in Delhi-NCR tier-2 zones",c:"invest"},
+  {t:"Chennai OMR belt records 28% jump in new project registrations — Q1 2026",c:"market"},
+];
+const track=document.getElementById('tickerTrack');
+function buildTicker(){
+  const double=[...tickerItems,...tickerItems];
+  track.innerHTML=double.map(i=>`<div class="ticker-item"><span class="ticker-dot"></span>${i.t}</div>`).join('');
+}
+buildTicker();
 
-function showTip(){
-  const k=document.getElementById("tipInterest").value;
-  const btn=document.getElementById("tipBtn"),ld=document.getElementById("tipLoading"),res=document.getElementById("tipResult"),tx=document.getElementById("tipText");
-  btn.disabled=true;btn.textContent="Fetching…";ld.style.display="flex";res.style.display="none";
-  setTimeout(()=>{tx.textContent=tips[k];res.style.display="flex";ld.style.display="none";btn.disabled=false;btn.textContent="Get My Tip →"},800);
+/* ═══════════ NEWS DATA ═══════════ */
+const newsData=[
+  {id:1,cat:"policy",badge:"Policy",badgeColor:"#FF4E6A",badgeBg:"rgba(255,78,106,0.15)",
+   icon:"🏛️",iconGrad:"linear-gradient(135deg,#FF4E6A,#FF7043)",
+   title:"RBI Holds Rates Steady — What It Means for Your Home Loan EMI Right Now",
+   date:"Apr 1, 2026",read:"4 min",tag:"Interest Rates",featured:true,
+   excerpt:"The Reserve Bank's decision to hold the repo rate at 6.25% in its April 2026 policy review has significant implications for the 8.2 crore active home loan borrowers in India. While relief may not be immediate, the direction is clear."},
+  {id:2,cat:"market",badge:"Market",badgeColor:"#00D4FF",badgeBg:"rgba(0,212,255,0.12)",
+   icon:"📈",iconGrad:"linear-gradient(135deg,#00D4FF,#0066FF)",
+   title:"Mumbai Launches Up 22%: Which Micro-Markets to Watch in Q2 2026",
+   date:"Mar 30, 2026",read:"3 min",tag:"Mumbai",featured:false,excerpt:""},
+  {id:3,cat:"invest",badge:"Investment",badgeColor:"#FFB800",badgeBg:"rgba(255,184,0,0.12)",
+   icon:"💰",iconGrad:"linear-gradient(135deg,#FFB800,#FF7043)",
+   title:"NRI Inflows Hit Record ₹1.2 Lakh Crore — Best Cities to Park Dollars in 2026",
+   date:"Mar 28, 2026",read:"5 min",tag:"NRI",featured:false,excerpt:""},
+  {id:4,cat:"policy",badge:"RERA",badgeColor:"#39FF6A",badgeBg:"rgba(57,255,106,0.1)",
+   icon:"📋",iconGrad:"linear-gradient(135deg,#39FF6A,#00C4A0)",
+   title:"RERA Compliance Surge: 35% Drop in Builder Defaults — Safe to Buy Now?",
+   date:"Mar 25, 2026",read:"3 min",tag:"Regulation",featured:false,excerpt:""},
+  {id:5,cat:"market",badge:"Market",badgeColor:"#00D4FF",badgeBg:"rgba(0,212,255,0.12)",
+   icon:"🏙️",iconGrad:"linear-gradient(135deg,#A855F7,#6C2FF2)",
+   title:"Bengaluru North 18% Price Surge: Early Mover's Last Window or Overheated Zone?",
+   date:"Mar 22, 2026",read:"4 min",tag:"Bengaluru",featured:false,excerpt:""},
+];
+
+function buildNews(filter='all'){
+  const grid=document.getElementById('newsGrid');
+  const filtered=filter==='all'?newsData:newsData.filter(n=>n.cat===filter);
+  const feat=filtered.find(n=>n.featured)||filtered[0];
+  const rest=filtered.filter(n=>n.id!==feat.id).slice(0,4);
+
+  grid.innerHTML='';
+  // Featured card
+  const fc=makeNewsCard(feat,true);
+  grid.appendChild(fc);
+  // Rest
+  rest.forEach(n=>grid.appendChild(makeNewsCard(n,false)));
 }
 
-const dailyTips=["Always verify the RERA registration number of any project before paying even a token amount. It takes 30 seconds and can save you from a decade of legal headaches.","The cost of a good property lawyer for a transaction review (₹5,000–15,000) is the cheapest insurance you'll ever buy. Never skip this step.","When evaluating a property, visit it three times — morning, afternoon, and evening. You'll see three completely different realities: traffic, noise, lighting, and neighbourhood character.","A resale property with a clear title in a mature locality almost always outperforms an under-construction unit in terms of certainty and livability. Always factor the delay risk into your ROI.","Before investing in any city corridor, check the 5-year infrastructure pipeline: metro, expressway, airport proximity. Infrastructure is the silent multiplier of real estate values.","Rental agreements of 11 months avoid mandatory registration in most Indian states — but always verify with a local lawyer, as rules vary by state.","The seller's urgency is your leverage. Always ask: 'Why are you selling?' The answer will tell you everything about your negotiating position."];
-document.getElementById("dailyTip").textContent=dailyTips[Math.floor(Date.now()/86400000)%dailyTips.length];
+function makeNewsCard(n,featured){
+  const d=document.createElement('article');
+  d.className='news-card'+(featured?' featured':'');
+  d.dataset.cat=n.cat;
+  d.innerHTML=`
+    <div class="news-img" style="background:${n.iconGrad}">
+      <div class="news-img-pattern"></div>
+      <div class="news-img-overlay"></div>
+      <span style="position:relative;z-index:1;font-size:${featured?'4rem':'2.5rem'}">${n.icon}</span>
+      <div class="news-badge" style="background:${n.badgeBg};color:${n.badgeColor};border:1px solid ${n.badgeColor}40">${n.badge}</div>
+    </div>
+    <div class="news-body">
+      <div class="news-meta">
+        <span>${n.date}</span><span class="news-meta-dot"></span>
+        <span>${n.read} read</span>
+      </div>
+      <div class="news-title ${featured?'':'news-title-sm'}">${n.title}</div>
+      ${featured&&n.excerpt?`<p class="news-excerpt">${n.excerpt}</p>`:''}
+      <div class="news-footer">
+        <span class="news-tag">#${n.tag}</span>
+        <span class="news-arrow">→</span>
+      </div>
+    </div>`;
+  return d;
+}
+buildNews();
 
+function filterNews(cat,btn){
+  document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  buildNews(cat);
+}
+
+/* ═══════════ INSIGHTS ═══════════ */
+const insights=[
+  {id:1,cat:"Market Pulse",icon:"📈",title:"Why 2025–26 Is a Buyer's Window Most People Will Miss",
+   date:"Mar 28, 2026",read:"3 min",tag:"Timing",
+   color:"#00D4FF",grad:"linear-gradient(90deg,#00D4FF,#0066FF)",
+   body:"Most buyers wait for rates to drop. Smart buyers know the window opens when competition is low — right now, inventory in key micro-markets is sitting 18% longer than last year. That lag is your negotiating power. When rates eventually ease, these same properties will attract 4–6 competing offers. The buyers who acted early will already be sitting on equity."},
+  {id:2,cat:"Insider Tip",icon:"🔑",title:"The 'Boring Neighbourhood' Strategy That Built 3 Portfolios",
+   date:"Mar 22, 2026",read:"4 min",tag:"Strategy",
+   color:"#FFB800",grad:"linear-gradient(90deg,#FFB800,#FF7043)",
+   body:"Glamour neighbourhoods get media coverage. Boring neighbourhoods get returns. Look for areas with one anchor project — a metro station, a university campus, a tech park — still 2–3 years out. Buy before the buzz. Early movers in three cities I've tracked quietly doubled their money while everyone else argued about whether the growth was real."},
+  {id:3,cat:"First-Timer",icon:"🏠",title:"Don't Let the Pre-Approval Letter Trick You",
+   date:"Mar 15, 2026",read:"3 min",tag:"Finance",
+   color:"#FF4E6A",grad:"linear-gradient(90deg,#FF4E6A,#A855F7)",
+   body:"Your bank will approve you for a number that sounds exciting. Ignore it. Calculate using the 28% rule — total housing cost should not exceed 28% of gross monthly income. Banks don't care about your lifestyle. You should. Far more buyers regret stretching than regret being conservative. Your first home should give you stability, not financial anxiety."},
+  {id:4,cat:"Data Insight",icon:"📊",title:"3BHK vs. 2BHK: What the Rental Yield Data Actually Shows",
+   date:"Mar 8, 2026",read:"5 min",tag:"Investment",
+   color:"#39FF6A",grad:"linear-gradient(90deg,#39FF6A,#00D4FF)",
+   body:"Everyone says bigger is better. The yield data disagrees. In most tier-2 cities, 2BHK units command 15–22% higher rental yield per sq.ft. than 3BHK units because the renter demographic is wider — young professionals, small families, couples. 3BHK sits. 2BHK rents. Unless you're targeting long-stay families in premium corridors, the data consistently leans smaller."},
+];
+
+const ig=document.getElementById('insightsGrid');
+insights.forEach(p=>{
+  const c=document.createElement('article');
+  c.className='insight-card';
+  c.innerHTML=`
+    <div class="insight-top-bar" style="background:${p.grad}"></div>
+    <div class="insight-cat" style="color:${p.color}">${p.icon} ${p.cat}</div>
+    <h3 class="insight-title">${p.title}</h3>
+    <div class="insight-meta">
+      <span>${p.date}</span><span>·</span><span>${p.read} read</span>
+      <span style="background:${p.color}18;color:${p.color};padding:2px 9px;border-radius:5px;font-size:.68rem;font-weight:700">#${p.tag}</span>
+    </div>
+    <div class="insight-body" id="ib-${p.id}" style="display:none">${p.body}</div>
+    <div class="insight-readmore" style="color:${p.color}" id="ir-${p.id}">Read more <span>→</span></div>`;
+  c.addEventListener('click',()=>{
+    const b=document.getElementById('ib-'+p.id),r=document.getElementById('ir-'+p.id);
+    const open=b.style.display==='block';
+    b.style.display=open?'none':'block';
+    r.innerHTML=open?'Read more <span>→</span>':'Close <span>↑</span>';
+  });
+  ig.appendChild(c);
+});
+
+/* ═══════════ WHY CARDS ═══════════ */
+const whys=[
+  {num:"01",icon:"🎯",title:"Specific, Not Generic",text:"No 'real estate is a great investment' fluff. Every tip is actionable — specific to corridors, unit types, and current timing.",glow:"rgba(0,212,255,0.15)"},
+  {num:"02",icon:"📊",title:"Data-Backed Always",text:"Every recommendation is grounded in rental yield data, inventory absorption rates, and micro-market comparables — not gut feel.",glow:"rgba(255,184,0,0.12)"},
+  {num:"03",icon:"🤝",title:"Zero Hidden Agenda",text:"No developer tie-ups, no broker referrals, no commissions. The advice is independent — the only way it stays honest.",glow:"rgba(255,78,106,0.12)"},
+  {num:"04",icon:"⚡",title:"Timing First",text:"Most investors lose on timing, not on the property itself. We help you read the signals before the crowd does.",glow:"rgba(168,85,247,0.12)"},
+];
+const wg=document.getElementById('whyGrid');
+whys.forEach(w=>{
+  const d=document.createElement('div');d.className='why-card reveal';
+  d.innerHTML=`<div class="why-card-glow" style="background:radial-gradient(circle,${w.glow} 0%,transparent 70%)"></div><div class="why-num">${w.num}</div><span class="why-icon">${w.icon}</span><h3>${w.title}</h3><p>${w.text}</p>`;
+  wg.appendChild(d);
+});
+
+/* ═══════════ DAILY TIPS ═══════════ */
+const dailyTips=[
+  "Always verify the RERA registration number before paying any token amount — 30 seconds can save you from a decade of legal headaches.",
+  "A good property lawyer for transaction review (₹5,000–15,000) is the cheapest insurance you'll ever buy. Never skip this step.",
+  "Visit any property three times — morning, afternoon, and evening. You'll see three different realities: traffic, noise, and neighbourhood character.",
+  "A resale property with clear title in a mature locality almost always outperforms an under-construction unit in certainty and livability.",
+  "Before investing in any corridor, check the 5-year infrastructure pipeline: metro, expressway, airport proximity — the silent multiplier of values.",
+  "Rental agreements of 11 months avoid mandatory registration in most Indian states — but verify with a local lawyer as rules vary.",
+  "The seller's urgency is your leverage. Always ask: 'Why are you selling?' The answer reveals everything about your negotiating position.",
+];
+let tipIdx=Math.floor(Date.now()/86400000)%dailyTips.length;
+function renderTip(){document.getElementById('dailyTipText').textContent=dailyTips[tipIdx]}
+function nextTip(){tipIdx=(tipIdx+1)%dailyTips.length;renderTip()}
+function prevTip(){tipIdx=(tipIdx-1+dailyTips.length)%dailyTips.length;renderTip()}
+renderTip();
+
+/* ═══════════ PERSONAL TIPS ═══════════ */
+const tipData={
+  first:"Before falling in love with any property, get your finances sorted first. Use the 28% rule — your total housing cost (EMI + maintenance + insurance) should not exceed 28% of gross monthly income. Banks approve you for exciting numbers; ignore them. Your first home should give you stability, not financial anxiety.",
+  invest:"The biggest mistake rental investors make is buying what they'd want to live in, not what the renter demographic needs. In most Indian tier-2 cities, 2BHK units near IT parks, universities, or metro corridors outperform 3BHK units by 15–22% on yield per sq.ft. Understand your renter before you understand the property.",
+  yield:"If your property has been rented at the same rate for over 18 months, you're leaving money on the table. Check active listings (not 2-year-old data) in your micro-market today. Fresh paint, professional photos, and listing on 2–3 platforms can justify a 10–15% rent revision without losing a good tenant.",
+  sell:"The worst time to sell is when you urgently need money — buyers sense desperation and it costs you lakhs. If you can wait, price 5–7% above your realistic target and hold firm for 45–60 days before reviewing. Serious buyers will negotiate, but won't walk away from a well-presented property in the right price range.",
+  value:"In India, the gap between circle rate and actual market value can be 20–60% depending on the city. This directly impacts stamp duty, registration costs, and loan eligibility. Always get an independent valuation from a registered valuer — not the builder's price or the broker's estimate — before any significant transaction.",
+  nri:"NRIs often buy in their hometown out of emotional connection, not investment logic. The strongest yields and capital appreciation today are concentrated in Hyderabad, Pune, and Bengaluru. Set up an NRO/NRE account specifically for property transactions from day one — it keeps repatriation clean and FEMA-compliant.",
+};
+function showTip(){
+  const k=document.getElementById('tipInterest').value;
+  const btn=document.getElementById('tipsBtn'),ld=document.getElementById('tipsLoader'),res=document.getElementById('tipsResult');
+  btn.disabled=true;btn.textContent="Crafting…";ld.style.display="flex";res.style.display="none";
+  setTimeout(()=>{
+    document.getElementById('tipText').textContent=tipData[k];
+    res.style.display="flex";ld.style.display="none";
+    btn.disabled=false;btn.textContent="Get My Tip →";
+  },800);
+}
+
+/* ═══════════ FORM SUBMIT ═══════════ */
 async function handleSubmit(e){
   e.preventDefault();
-  const name=document.getElementById("nameInput").value.trim();
-  const email=document.getElementById("emailInput").value.trim();
+  const name=document.getElementById('nameInput').value.trim();
+  const email=document.getElementById('emailInput').value.trim();
   if(!name||!email){alert("Please enter your name and email.");return}
-  const form=e.target,btn=form.querySelector(".submit-btn");
+  const form=e.target,btn=form.querySelector('.submit-btn');
   btn.disabled=true;btn.textContent="Sending…";
   try{
     const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
     if(res.ok){
-      document.getElementById("leadForm").style.display="none";
-      document.getElementById("successBox").style.display="block";
-      document.getElementById("successMsg").innerHTML=`Welcome, <strong>${name}</strong>! Your first insight arrives within 24 hours. Add <strong>insights@realestatepulse.in</strong> to your contacts so it doesn't land in spam.`;
+      document.getElementById('leadForm').style.display='none';
+      document.getElementById('successBox').style.display='block';
+      document.getElementById('successMsg').innerHTML=`Welcome, <strong>${name}</strong>! Your first insight arrives within 24 hours. Also join our <a href="https://www.facebook.com/groups/realestatepulseindia" target="_blank" style="color:var(--teal)">Facebook group</a> for daily updates!`;
     }else{btn.disabled=false;btn.textContent="Send Me Free Insights →";alert("Something went wrong. Please try again.")}
   }catch{btn.disabled=false;btn.textContent="Send Me Free Insights →";alert("Network error. Please check your connection.")}
 }
+
+/* ═══════════ SCROLL REVEAL ═══════════ */
+const revealEls=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*80);
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+revealEls.forEach(el=>revObs.observe(el));
 </script>
 </body>
 </html>
